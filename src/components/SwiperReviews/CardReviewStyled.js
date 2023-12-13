@@ -11,10 +11,11 @@ export const CardReviewStyled = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: ${props =>props.theme.bodyBg};
 `
 
 export const CommentText = styled.p`
-    
+    color: ${props =>props.theme.text};
     font-size:1.6rem;
     line-height: 2.8rem;
     display: -webkit-box;
@@ -38,12 +39,14 @@ export const UserImg = styled.img`
 `
 
 export const UserName = styled.p`
+    color:${props =>props.theme.headingText};
     font-size: 1.6rem;
     font-weight:600;
     line-height: 2.5rem;
 `
 
 export const ReviewTime = styled.span `
+    color:${props =>props.theme.subText};
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 2.1rem;

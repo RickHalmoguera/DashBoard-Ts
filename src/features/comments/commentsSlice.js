@@ -5,6 +5,7 @@ export const CommentSlice = createSlice({
     name: "comments",
     initialState:{
         data: [],
+        modalId:null,
         status: "idle",
         error: null
     },   
@@ -14,11 +15,13 @@ export const CommentSlice = createSlice({
             const commentToArchive = action.payload
             const updatedStatus = state.data.map((item)=> item.id === commentToArchive ? {...item,is_archived:!item.is_archived} : item) 
             state.data = updatedStatus 
-        }
-       // getElementById: (state,action) => state.data.filter((room) => room.id === action.payload),
-       // addRoomElement: (state,action) => {
-       //     state.data = [action.payload,...state.data]
-       // }
+        },
+       setModalCommentId: (state,action) => {
+        console.log(action.payload)
+        state.modalId = action.payload
+        },
+
+      
     },
     extraReducers: (builder) => {
         builder.addCase(getCommentsListFromAPIThunk.fulfilled, (state,action) => {
@@ -36,7 +39,9 @@ export const CommentSlice = createSlice({
     }
 });
 
-export const {changeCommentStatus} = CommentSlice.actions
+export const {changeCommentStatus,setModalCommentId} = CommentSlice.actions
+export const getCommentById = state => state.comments.data.filter((comment) => comment.id === state.comments.modalId)
+export const getCommentId = state => state.comments.modalId
 export const getCommentsData = state => state.comments.data
 export const getCommentsStatus = state => state.comments.status
 export const getCommentsError = state => state.comments.error

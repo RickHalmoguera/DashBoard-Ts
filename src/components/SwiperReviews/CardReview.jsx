@@ -1,20 +1,21 @@
-import { CardReviewStyled, CardReviewUserContainer, CommentText, ReviewTime, UserImg, UserName } from "./CardReviewStyled";
-import { XCircleStyledIcon } from "../Icons/IconsStyled";
-
-import { useState } from "react";
-import { ModalReviews } from "../Modal/ModalReviews";
+import { CardReviewStyled, CardReviewUserContainer, CommentText, ReviewTime, UserImg, UserName } from "./CardReviewStyled"
+import { XCircleStyledIcon } from "../Icons/IconsStyled"
+import {useDispatch} from "react-redux"
+import { useState } from "react"
+import { Modal } from "../Modal/Modal"
+import { setModalCommentId } from "../../features/comments/commentsSlice"
 
 
 
 export const CardReview = ({comment})=>{
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const dispatch = useDispatch()
     const givenDateString = comment.date;
-    const givenDate = new Date(givenDateString);
+    const givenDate = new Date(givenDateString)
     let elapsedTime = 0;
     const currentDate = new Date();
     const timeDifference = currentDate - givenDate;
-    const minutes = Math.floor(timeDifference / (1000 * 60));
-    const days = Math.floor(minutes / (24 * 60));
+    const minutes = Math.floor(timeDifference / (1000 * 60))
+    const days = Math.floor(minutes / (24 * 60))
 
     if (days > 0) {
     elapsedTime= `${days} days ago`;
@@ -22,26 +23,18 @@ export const CardReview = ({comment})=>{
     elapsedTime=`${minutes} minutes ago`;
     }
     
-    const openModal = () => {
-        setIsModalOpen(true);
-        console.log("hola")
-      };
+    const openModal = (commentId) => {
+        dispatch(setModalCommentId(commentId))
+        
+    };
     
-      const closeModal = () => {
-        setIsModalOpen(false);
-      };
 
     return(
         <>
-            <ModalReviews 
-                isOpen={isModalOpen}
-                onRequestClose={closeModal}
-                title={comment.title}
-                text={comment.text}
-            />
+      
             <CardReviewStyled>
                 
-                <CommentText onClick={openModal} >
+                <CommentText onClick={()=>openModal(comment.id)} >
                     {comment.text}
                 </CommentText>
                 

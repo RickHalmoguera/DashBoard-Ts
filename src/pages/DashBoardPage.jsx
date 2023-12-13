@@ -4,8 +4,9 @@ import { BedStyledIcon, CalendarDashStyledIcon,CheckInStyledIcon, CheckOutStyled
 import { SwiperReviews } from "../components/SwiperReviews/SwiperReviews"
 
 
+
 export const DashBoardPage = ()=>{
- 
+
     return(
         <DashBoardStyled>
             <DashBoardTopContainerStyled>

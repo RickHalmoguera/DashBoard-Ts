@@ -5,10 +5,10 @@ export const ButtonStyled = styled.button`
     border-radius: 8px;
     width: 16rem;
     height: 3.5rem;
-    background-color:${({$bg})=> $bg};
+    background-color:${props =>props.theme.buttonBg};
     font-size: 1.4rem;
     font-weight: 600;
-    color: ${({$fc})=> $fc};
+    color: ${props =>props.theme.buttonText};
 
 ` 
 
