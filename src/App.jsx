@@ -1,12 +1,14 @@
 import React from "react"
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { ThemeProvider } from "styled-components"
 import { GlobalStyles, darkTheme, lightTheme } from "./theme/GlobalStyles"
 import { getTheme } from "./features/theme/themeSlice"
 import { useSelector } from "react-redux"
 import { LoginPage } from "./pages/LoginPage"
 import {RootPage} from "./pages/RootPage"
-import { DashBoardPage } from './pages/DashBoardPage';
+import { DashBoardPage } from './pages/DashBoardPage'
+import { ContactPage } from './pages/ContactPage'
+
 
 function App() {
   const themeData = useSelector(getTheme)
@@ -19,6 +21,7 @@ function App() {
               <Route path="/" element={<LoginPage />} />
               <Route path='/root' element={<RootPage />}>
                 <Route path='/root/dashboard' element={<DashBoardPage />} />
+                <Route path='/root/contact' element={<ContactPage />} />
               </Route>
             </Routes>
            

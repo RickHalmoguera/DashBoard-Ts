@@ -1,6 +1,6 @@
-import { FilterContainerStyled } from "../components/common/FilterContainerStyled"
-import { FilterButtonStyled } from '../components/common/FilterButtonStyled'
-import { SelectButtonStyled } from '../components/common/SelectButtonStyled'
+import { FilterContainerStyled } from "../components/Button/FilterContainerStyled"
+import { FilterButtonStyled } from '../components/Button/FilterButtonStyled'
+import { SelectButtonStyled } from '../components/Button/SelectButtonStyled'
 
 import { TableContact } from "../components/Table/TableContact"
 import { SwiperReviews } from "../components/SwiperReviews/SwiperReviews"
