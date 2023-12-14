@@ -1,4 +1,4 @@
-export interface ContactInterface{
+export interface CommentsInterface{
     photo: string
     name: string
     email: string
@@ -10,8 +10,9 @@ export interface ContactInterface{
     id: string
 }
 
-export interface ContactSliceInitialStateInterface{
-    data: ContactInterface[],
+export interface CommentsSliceInitialStateInterface{
+    data: CommentsInterface[],
+    modalId:string| undefined, 
     status: 'idle' | 'pending' | 'fulfilled' | 'rejected',
     error: string | undefined
 }

@@ -7,7 +7,7 @@ export const Modal = ()=>{
     const dispatch = useDispatch()
     const comment=useSelector(getCommentById) 
     const closeModal =()=>{
-        dispatch(setModalCommentId(null))
+        dispatch(setModalCommentId(undefined))
     }
 
     return(

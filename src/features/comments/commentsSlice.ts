@@ -1,14 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getCommentsListFromAPIThunk } from "./commentsThunk";
+import {CommentsInterface, CommentsSliceInitialStateInterface} from "../../interfaces/CommentsInterface"
+import { RootState } from "../../app/store";
+
+const initialState: CommentsSliceInitialStateInterface = {
+    data: [],
+    modalId:undefined,
+    status: 'idle',
+    error: undefined
+}
+
 
 export const CommentSlice = createSlice({
     name: "comments",
-    initialState:{
-        data: [],
-        modalId:null,
-        status: "idle",
-        error: null
-    },   
+    initialState:initialState,
     reducers:{
        
         changeCommentStatus: (state,action)=>{
@@ -40,8 +45,8 @@ export const CommentSlice = createSlice({
 });
 
 export const {changeCommentStatus,setModalCommentId} = CommentSlice.actions
-export const getCommentById = state => state.comments.data.filter((comment) => comment.id === state.comments.modalId)
-export const getCommentId = state => state.comments.modalId
-export const getCommentsData = state => state.comments.data
-export const getCommentsStatus = state => state.comments.status
-export const getCommentsError = state => state.comments.error
+export const getCommentById = (state: RootState)=> state.comments.data.filter((comment) => comment.id === state.comments.modalId)
+export const getCommentId = (state: RootState) => state.comments.modalId
+export const getCommentsData = (state: RootState): CommentsInterface[] => state.comments.data;
+export const getCommentsStatus = (state: RootState) => state.comments.status;
+export const getCommentsError = (state: RootState) => state.comments.error;

@@ -18,7 +18,7 @@ export const RootPage = () =>{
 
     return(
         <RootStyled>
-            {modalOpen != null? <Modal/> : ""}
+            {modalOpen != undefined? <Modal/> : ""}
             <SideMenu isVisible={isMenuOpen}/>
             <FlexColumnStyled>
                 <TopBar onToggleMenu={toggleMenu} isMenuOpen={isMenuOpen}/>
