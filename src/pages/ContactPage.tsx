@@ -8,14 +8,14 @@ import { ContactStyled, ContactTopContainerStyled } from "../components/Contact/
 import { useState } from "react"
 
 export const ContactPage = ()=>{
-    const [isFiltered, setIsFiltered] = useState(false)
-    const [selectedSortOption, setSelectedSortOption] = useState("newest");
+    const [isFiltered, setIsFiltered] = useState<boolean>(false)
+    const [selectedSortOption, setSelectedSortOption] = useState<string>("newest");
 
 
-    const handleSort =(e)=>{
-        const selectedOption = e.target.value
-        setSelectedSortOption(selectedOption)
-    }
+    const handleSort = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const selectedOption = e.target.value;
+        setSelectedSortOption(selectedOption);
+      }
 
   
 

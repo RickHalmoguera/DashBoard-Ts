@@ -11,9 +11,11 @@ import { getCommentsData, getCommentsError, getCommentsStatus } from "../../feat
 import { useEffect, useState } from "react"
 import { getCommentsListFromAPIThunk } from '../../features/comments/commentsThunk';
 import { ThreeDots } from 'react-loader-spinner';
+import { CommentsInterface } from '../../interfaces/CommentsInterface';
+import { AppDispatch } from '../../app/store';
 
 export const SwiperReviews = ()=>{
-  const dispatch = useDispatch()
+  const dispatch: AppDispatch = useDispatch()
   const commentsListData = useSelector(getCommentsData)
   const commentsListError = useSelector(getCommentsError)
   const commentsListStatus = useSelector(getCommentsStatus)
@@ -29,7 +31,7 @@ export const SwiperReviews = ()=>{
       }
       else if (commentsListStatus === "fulfilled"){
           let components = []
-          commentsListData.forEach(comment => {
+          commentsListData.forEach((comment: CommentsInterface) => {
               components.push(
                   <SwiperSlide key={comment.id} >
                     <CardReview  comment={comment}/>

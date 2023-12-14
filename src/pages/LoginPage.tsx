@@ -14,10 +14,11 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { ThemeSelectorAbsoluteStyled } from "../components/ThemeSelector/ThemeSelectorStyled"
 import { MoonStyledIcon, SunStyledIcon } from "../components/Icons/IconsStyled"
+import { AppDispatch } from "../app/store"
 
 
 export const  LoginPage =()=> {
-  const dispatch = useDispatch()
+  const dispatch: AppDispatch = useDispatch()
   const navigate = useNavigate()
   const themeData = useSelector(getTheme)
 
@@ -25,13 +26,13 @@ export const  LoginPage =()=> {
     toast.error("Can't login, please use the data in the placeholders")
 
   const handleThemeChange = () => {
-    dispatch(changeTheme())
+    dispatch(changeTheme)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const user = e.target.user.value
-    const password = e.target.password.value
+    const user = (e.target as HTMLFormElement).user.value
+    const password = (e.target as HTMLFormElement).password.value
     if (user !== 'test@test.com' || password !== 'test') {
       loginError()
     } else {
