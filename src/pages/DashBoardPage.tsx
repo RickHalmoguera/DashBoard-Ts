@@ -1,3 +1,4 @@
+import React from "react" 
 import { KpiCard } from "../components/DashBoard/KpiCard"
 import { DashBoardBottomContainerStyled, DashBoardHeading, DashBoardStyled, DashBoardTopContainerStyled } from "../components/DashBoard/DashBoardStyled"
 import { BedStyledIcon, CalendarDashStyledIcon,CheckInStyledIcon, CheckOutStyledIcon } from "../components/Icons/IconsStyled"

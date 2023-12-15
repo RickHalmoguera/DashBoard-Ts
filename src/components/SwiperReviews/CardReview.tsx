@@ -1,3 +1,4 @@
+import React from "react"
 import { CardReviewStyled, CardReviewUserContainer, CommentText, ReviewTime, UserImg, UserName } from "./CardReviewStyled"
 import { XCircleStyledIcon } from "../Icons/IconsStyled"
 import {useDispatch} from "react-redux"
@@ -9,9 +10,9 @@ export const CardReview = ({comment})=>{
     const dispatch = useDispatch()
     const givenDateString = comment.date
     const givenDate = new Date(givenDateString)
-    let elapsedTime = 0
+    let elapsedTime:string = ""
     const currentDate = new Date()
-    const timeDifference = currentDate - givenDate
+    const timeDifference = currentDate.getTime() - givenDate.getTime()
     const minutes = Math.floor(timeDifference / (1000 * 60))
     const days = Math.floor(minutes / (24 * 60))
 

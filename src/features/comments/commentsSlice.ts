@@ -45,8 +45,8 @@ export const CommentSlice = createSlice({
 });
 
 export const {changeCommentStatus,setModalCommentId} = CommentSlice.actions
-export const getCommentById = (state: RootState)=> state.comments.data.filter((comment) => comment.id === state.comments.modalId)
-export const getCommentId = (state: RootState) => state.comments.modalId
+export const getCommentById = (state: RootState):CommentsInterface[] => state.comments.data.filter((comment) => comment.id === state.comments.modalId)
+export const getCommentId = (state: RootState) :string|undefined => state.comments.modalId
 export const getCommentsData = (state: RootState): CommentsInterface[] => state.comments.data;
-export const getCommentsStatus = (state: RootState) => state.comments.status;
-export const getCommentsError = (state: RootState) => state.comments.error;
+export const getCommentsStatus = (state: RootState) :string=> state.comments.status;
+export const getCommentsError = (state: RootState):string|undefined => state.comments.error;
